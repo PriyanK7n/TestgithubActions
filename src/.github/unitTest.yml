@@ -1,0 +1,35 @@
+name: Python CI workflow
+
+# Triggers workflow on the basis of events happening here push or pull to the main branch
+on: # Event 1
+  push: # Event 1
+    branches: [ "main" ]
+ 
+  pull_request: # Event 2
+    branches: [ "main" ]
+
+jobs:
+  test: # Job 1
+    runs-on: ubuntu-latest # docker container provided by github to run our tests on 
+    
+    steps:
+    # Step1: Check out our code to the docker container above for testing 
+    - name: Check out Code
+      uses: actions/checkout@v2 # prebuilt actions provided by github usage
+
+    # Step2: Setup Python environment for running tests inside docker container 
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: "3.8"
+
+    # Step3: Install necessary dependencies
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    # Step4: Run our tests
+    - name: Run tests
+      run: pytest
+    
