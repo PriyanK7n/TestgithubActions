@@ -1,4 +1,5 @@
-from src.mathOperations import add, sub, multiply, divide
+# from src.mathOperations import add, sub, multiply, divide
+from src.mathOperations import add, subtract, multiply, divide
 import pytest
 
 
@@ -10,10 +11,10 @@ def test_add():
 
 
 def test_sub():
-    assert sub(5, 2) == 3
-    assert sub(11, 11) == 0
-    assert sub(-11, 11) == -22
-    assert sub(0, 5) == -5
+    assert subtract(5, 2) == 3
+    assert subtract(11, 11) == 0
+    assert subtract(-11, 11) == -22
+    assert subtract(0, 5) == -5
 
 
 def test_multiply():
