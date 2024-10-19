@@ -1,6 +1,6 @@
 name: Python CI workflow
 
-# Triggers workflow based on events happening here push or pull to the main branch
+# Triggers workflow on the basis of events happening here push or pull to the main branch
 on: # Event 1
   push: # Event 1
     branches: [ "main" ]
@@ -10,14 +10,14 @@ on: # Event 1
 
 jobs:
   test: # Job 1
-    runs-on: ubuntu-latest # docker container provided by GitHub to run our tests on 
+    runs-on: ubuntu-latest # docker container provided by github to run our tests on 
     
     steps:
     # Step1: Check out our code to the docker container above for testing 
     - name: Check out Code
-        uses: actions/checkout@v2 # prebuilt actions provided by GitHub usage
+      uses: actions/checkout@v2 # prebuilt actions provided by github usage
 
-    # Step2: Setup Python environment for running tests inside ubuntu-latest docker container 
+    # Step2: Setup Python environment for running tests inside docker container 
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
